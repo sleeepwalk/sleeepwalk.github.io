@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>環境教育平台</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            color: white;
+            padding: 1rem;
+            display: block;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #4CAF50;
+        }
+        .content {
+            padding: 2rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 1rem 0;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>環境教育平台</h1>
+    <p>學習環境知識，參與行動，共建永續未來。</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#home">首頁</a></li>
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="#courses">課程資源</a></li>
+        <li><a href="#actions">行動與活動</a></li>
+        <li><a href="#knowledge">環境知識</a></li>
+        <li><a href="#contact">聯繫我們</a></li>
+    </ul>
+</nav>
+
+<div class="content" id="home">
+    <h2>首頁</h2>
+    <div class="card">
+        <h3>最新活動：清潔河流行動</h3>
+        <p>加入我們，共同清潔河流，讓生態更健康！</p>
+        <a href="#actions" class="button">查看詳情</a>
+    </div>
+</div>
+
+<div class="content" id="about">
+    <h2>關於我們</h2>
+    <p>我們致力於推廣環境教育，讓每個人都能了解如何保護地球。</p>
+    <p>我們的願景是建立一個人人都關心環境的社會。</p>
+</div>
+
+<div class="content" id="courses">
+    <h2>課程資源</h2>
+    <div class="card">
+        <h3>課程名稱：氣候變遷基礎</h3>
+        <p>了解氣候變遷的基本知識以及如何應對。</p>
+        <a href="#" class="button">開始學習</a>
+    </div>
+</div>
+
+<div class="content" id="actions">
+    <h2>行動與活動</h2>
+    <div class="card">
+        <h3>活動名稱：植樹活動</h3>
+        <p>參與植樹，為地球增添綠色。</p>
+        <a href="#" class="button">報名參加</a>
+    </div>
+</div>
+
+<div class="content" id="knowledge">
+    <h2>環境知識</h2>
+    <p>你知道嗎？海洋塑膠垃圾正迅速增加，對生態系統造成威脅。</p>
+    <a href="#" class="button">了解更多</a>
+</div>
+
+<div class="content" id="contact">
+    <h2>聯繫我們</h2>
+    <p>如有任何問題，請填寫以下表單或直接與我們聯繫。</p>
+    <form action="#" method="post">
+        <label for="name">姓名：</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">電子郵件：</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">留言：</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        <button type="submit" class="button">送出</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 環境教育平台. 保留所有權利。</p>
+</footer>
+
+</body>
+</html>
