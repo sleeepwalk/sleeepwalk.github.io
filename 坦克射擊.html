@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會射擊的坦克</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #282c34;
+            color: white;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background: #444;
+            border: 2px solid #333;
+        }
+        #game-info {
+            text-align: center;
+            margin: 20px;
+        }
+        #start-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #start-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-info">
+        <h1>會射擊的坦克</h1>
+        <p>遊戲規則：控制坦克射擊移動的標靶！使用箭頭鍵移動坦克，空白鍵射擊。</p>
+        <button id="start-button">開始遊戲</button>
+    </div>
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let tank = { x: 375, y: 350, width: 50, height: 30, color: 'green', bullets: [] };
+        let targets = [];
+        let isPlaying = false;
+
+        function drawTank() {
+            ctx.fillStyle = tank.color;
+            ctx.fillRect(tank.x, tank.y, tank.width, tank.height);
+        }
+
+        function drawBullets() {
+            tank.bullets.forEach(bullet => {
+                ctx.fillStyle = 'yellow';
+                ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+            });
+        }
+
+        function drawTargets() {
+            targets.forEach(target => {
+                ctx.fillStyle = 'red';
+                ctx.fillRect(target.x, target.y, target.width, target.height);
+            });
+        }
+
+        function moveTank(event) {
+            if (!isPlaying) return;
+            if (event.key === 'ArrowUp' && tank.y > 0) tank.y -= 15;
+            if (event.key === 'ArrowDown' && tank.y < canvas.height - tank.height) tank.y += 15;
+            if (event.key === 'ArrowLeft' && tank.x > 0) tank.x -= 15;
+            if (event.key === 'ArrowRight' && tank.x < canvas.width - tank.width) tank.x += 15;
+            if (event.key === ' ') shootBullet();
+        }
+
+        function shootBullet() {
+            tank.bullets.push({ x: tank.x + tank.width / 2 - 2.5, y: tank.y, width: 5, height: 10 });
+        }
+
+        function moveBullets() {
+            tank.bullets.forEach(bullet => {
+                bullet.y -= 10;
+            });
+            tank.bullets = tank.bullets.filter(bullet => bullet.y > 0);
+        }
+
+        function createTargets() {
+            for (let i = 0; i < 3; i++) {
+                targets.push({
+                    x: Math.random() * (canvas.width - 50),
+                    y: Math.random() * canvas.height / 2,
+                    width: 50,
+                    height: 30,
+                    speed: Math.random() * 1.5 + 1
+                });
+            }
+        }
+
+        function moveTargets() {
+            targets.forEach(target => {
+                target.x += target.speed;
+                if (target.x > canvas.width || target.x < 0) target.speed *= -1;
+            });
+        }
+
+        function checkCollisions() {
+            tank.bullets.forEach((bullet, bIndex) => {
+                targets.forEach((target, tIndex) => {
+                    if (
+                        bullet.x < target.x + target.width &&
+                        bullet.x + bullet.width > target.x &&
+                        bullet.y < target.y + target.height &&
+                        bullet.y + bullet.height > target.y
+                    ) {
+                        tank.bullets.splice(bIndex, 1);
+                        targets.splice(tIndex, 1);
+                    }
+                });
+            });
+        }
+
+        function resetGame() {
+            isPlaying = false;
+            tank.x = 375;
+            tank.y = 350;
+            tank.bullets = [];
+            targets = [];
+            document.getElementById('start-button').style.display = 'block';
+        }
+
+        function gameLoop() {
+            if (!isPlaying) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawTank();
+            drawBullets();
+            drawTargets();
+            moveBullets();
+            moveTargets();
+            checkCollisions();
+            if (targets.length === 0) createTargets();
+            requestAnimationFrame(gameLoop);
+        }
+
+        document.addEventListener('keydown', moveTank);
+
+        document.getElementById('start-button').addEventListener('click', () => {
+            isPlaying = true;
+            createTargets();
+            document.getElementById('start-button').style.display = 'none';
+            gameLoop();
+        });
+    </script>
+</body>
+</html>
