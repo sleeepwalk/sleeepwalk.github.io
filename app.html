@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>環境汙染教育平台</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>環境汙染教育平台</h1>
+        <p>學習如何保護我們的地球</p>
+    </header>
+    <nav>
+        <a href="#home">首頁</a>
+        <a href="#courses">課程介紹</a>
+        <a href="#interaction">互動區</a>
+        <a href="#contact">聯繫我們</a>
+    </nav>
+    <div class="container" id="home">
+        <h2>歡迎來到環境汙染教育平台</h2>
+        <p>我們的目標是提高人們對環境問題的認識，並提供解決方案來減少污染對地球的影響。</p>
+    </div>
+    <div class="container" id="courses">
+        <h2>課程介紹</h2>
+        <div class="card">
+            <h3>空氣污染的影響</h3>
+            <p>了解空氣污染的成因及其對人類健康和生態系統的影響。</p>
+        </div>
+        <div class="card">
+            <h3>水污染的解決方案</h3>
+            <p>學習如何通過可持續方法來減少水污染。</p>
+        </div>
+        <div class="card">
+            <h3>廢棄物管理</h3>
+            <p>探索垃圾分類和循環利用的最佳實踐。</p>
+        </div>
+    </div>
+    <div class="container" id="interaction">
+        <h2>互動區</h2>
+        <p>參與我們的測驗和挑戰，測試您的環保知識！</p>
+        <button onclick="alert('測驗功能即將推出，敬請期待！')">開始測驗</button>
+    </div>
+    <div class="container" id="contact">
+        <h2>聯繫我們</h2>
+        <p>有任何問題或建議？請隨時聯繫我們。</p>
+        <form>
+            <label for="name">姓名：</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">電子郵件：</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">留言：</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 環境汙染教育平台. 保留所有權利。</p>
+    </footer>
+</body>
+</html>
