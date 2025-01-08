@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>減肥產品創新APP</title>
+    <style>
+        /* 全局樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+        .container {
+            margin-top: 80px;
+            margin-bottom: 60px;
+            padding: 20px;
+        }
+        .module {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .module h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .module p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+        }
+        nav a:hover, nav a.active {
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>減肥產品創新APP</h1>
+        <p>您的個性化健康支持系統</p>
+    </header>
+
+    <div class="container">
+        <!-- 個性化評估模組 -->
+        <div id="personalized" class="module">
+            <h2>個性化評估</h2>
+            <p>填寫問卷了解您的健康需求，獲取專屬減肥方案。</p>
+            <button onclick="alert('功能即將開放！')">開始評估</button>
+        </div>
+
+        <!-- 產品推薦模組 -->
+        <div id="products" class="module">
+            <h2>產品推薦</h2>
+            <p>基於您的需求推薦合適的減肥產品，助您輕鬆達標。</p>
+            <button onclick="alert('正在推薦產品中！')">查看推薦</button>
+        </div>
+
+        <!-- 專業知識支持模組 -->
+        <div id="knowledge" class="module">
+            <h2>專業知識支持</h2>
+            <p>學習科學減肥知識，制定更有效的健康計劃。</p>
+            <button onclick="alert('更多內容即將推出！')">閱讀知識</button>
+        </div>
+
+        <!-- 社群互動模組 -->
+        <div id="community" class="module">
+            <h2>社群互動</h2>
+            <p>參與挑戰，分享減肥經驗，與其他人互相支持。</p>
+            <button onclick="alert('即將進入社群！')">加入社群</button>
+        </div>
+
+        <!-- 產品商城模組 -->
+        <div id="store" class="module">
+            <h2>產品商城</h2>
+            <p>購買經過科學驗證的產品，幫助您有效減肥。</p>
+            <button onclick="alert('進入商城！')">進入商城</button>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#personalized" class="active">評估</a>
+        <a href="#products">推薦</a>
+        <a href="#knowledge">知識</a>
+        <a href="#community">社群</a>
+        <a href="#store">商城</a>
+    </nav>
+
+    <script>
+        // 簡單的導航控制
+        document.querySelectorAll("nav a").forEach(navItem => {
+            navItem.addEventListener("click", () => {
+                document.querySelectorAll("nav a").forEach(item => item.classList.remove("active"));
+                navItem.classList.add("active");
+            });
+        });
+    </script>
+</body>
+</html>
